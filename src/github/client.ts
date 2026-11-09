@@ -27,6 +27,12 @@ export class GitHubClient {
     this.octokit = new Octokit({
       auth: token || undefined,
       userAgent: "oss-copilot/0.1.0",
+      log: {
+        debug: () => {},
+        info: () => {},
+        warn: () => {},
+        error: () => {},
+      },
     });
   }
 
