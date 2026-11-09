@@ -1,0 +1,76 @@
+{
+  "name": "oss-copilot",
+  "version": "0.1.0",
+  "description": "AI-powered toolkit for GitHub code reviews, issue triage, and open-source maintenance.",
+  "author": "Pankaj Sharma <pankaj061999@users.noreply.github.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/pankaj061999/oss-copilot#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pankaj061999/oss-copilot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pankaj061999/oss-copilot/issues"
+  },
+  "keywords": [
+    "github",
+    "ai",
+    "code-review",
+    "issue-triage",
+    "pr-review",
+    "open-source",
+    "copilot",
+    "maintenance",
+    "security-scanner",
+    "release-notes"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "oss-copilot": "bin/oss-copilot.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "action.yml",
+    ".oss-copilot.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node bin/oss-copilot.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src tests",
+    "lint:fix": "eslint src tests --fix",
+    "format": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "format:fix": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.1.1",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "openai": "^4.86.1",
+    "picocolors": "^1.1.1",
+    "yaml": "^2.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/node": "^22.13.9",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.26.0",
+    "vitest": "^3.0.7"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

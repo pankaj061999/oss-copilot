@@ -1,0 +1,18 @@
+name: Security Report
+description: File a non-sensitive security observation or question
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > [!IMPORTANT]
+        > If you have found an active vulnerability or exploit, please do NOT file a public issue.
+        > Please email pankaj061999@users.noreply.github.com or use GitHub Private Vulnerability Reporting.
+        > See [SECURITY.md](https://github.com/pankaj061999/oss-copilot/blob/main/SECURITY.md).
+  - type: textarea
+    id: overview
+    attributes:
+      label: General Security Question or Suggestion
+      description: Non-exploitable question or hardening suggestion.
+    validations:
+      required: true

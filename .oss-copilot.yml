@@ -1,0 +1,35 @@
+# OSS Copilot Configuration File (.oss-copilot.yml)
+# Documentation: https://github.com/pankaj061999/oss-copilot#configuration
+
+provider: openai
+model: gpt-4o-mini
+
+review:
+  enabled: true
+  postComment: false
+  maxDiffLength: 20000
+  ignoreFiles:
+    - "*.min.js"
+    - "*.lock"
+    - "package-lock.json"
+    - "yarn.lock"
+    - "pnpm-lock.yaml"
+    - "*.svg"
+
+triage:
+  enabled: true
+  postComment: false
+  applyLabels: false
+
+security:
+  enabled: true
+  failOnHighRisk: false
+
+duplicateCheck:
+  enabled: true
+  similarityThreshold: 0.75
+  maxIssuesToScan: 50
+
+releaseNotes:
+  enabled: true
+  includeContributors: true

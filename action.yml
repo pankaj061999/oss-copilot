@@ -1,0 +1,38 @@
+name: "OSS Copilot"
+description: "AI-powered toolkit for GitHub code reviews, issue triage, and open-source maintenance."
+author: "Pankaj Sharma"
+branding:
+  icon: "cpu"
+  color: "blue"
+
+inputs:
+  openai-api-key:
+    description: "OpenAI API Key for AI review and triage"
+    required: true
+  github-token:
+    description: "GitHub Token for reading PRs and posting review comments"
+    required: false
+    default: ${{ github.token }}
+  command:
+    description: "Specific command to execute (e.g. 'review-pr' or 'triage'). Defaults to automated event detection."
+    required: false
+    default: "auto"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: "22"
+
+    - name: Run OSS Copilot
+      shell: bash
+      env:
+        OPENAI_API_KEY: ${{ inputs.openai-api-key }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_EVENT_NAME: ${{ github.event_name }}
+        GITHUB_EVENT_PATH: ${{ github.event_path }}
+      run: |
+        npx oss-copilot
